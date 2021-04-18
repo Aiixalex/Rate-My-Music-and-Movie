@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Music&Movie---All Actors information</title>
+</head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('actors') }}">Show all Actors info</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Actors <!--(<a href = "{{ url_for('reg') }}"> Search for Actors
+         </a>)--></h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Country</th>
+                <th>Date of Birth</th>
+                <th>Movie Acted</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for actor in actors %}
+               <tr>
+                  <td>{{ actor.id }}</td>
+                  <td>{{ actor.name }}</td>
+                  <td>{{ actor.country }}</td>
+                  <td>{{ actor.date_of_birth }}</td>
+                  <td>{{ actor.act }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateMusic and Movie</title>
+    <! link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock %}
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('settings') }}">Settings</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a> </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer>
+        <small>&copy; 2021 <a href="http://www.sfu.ca">SFU CMPT354</a></small>
+	</footer>
+</body>
+</html> 

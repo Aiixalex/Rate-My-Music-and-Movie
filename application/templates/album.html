@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Music&Movie---All Albums Information</title>
+</head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('new_album') }}">Add New Album</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Albums </h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Cover</th>
+               <th>Name</th>
+               <th>Album or EP</th>
+                <th>Release Date</th>
+                <th>Detailed Information</th>
+                <th>Genre</th>
+                <th>Tracks</th>
+                <th>Album Comment ID</th>
+                <th>Artists</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for album in albums %}
+               <tr>
+                  <td>{{ album.id }}</td>
+                  <td>{{ album.cover }}</td>
+                  <td>{{ album.name }}</td>
+                  <td>{{ album.album_or_ep }}</td>
+                  <td>{{ album.releaseDate }}</td>
+                  <td>{{ album.detailedInfo }}</td>
+                  <td>{{ album.g_id }}</td>
+                  <td>{{ album.track_name }}</td>
+                  <td>{{ album.c_id }}</td>
+                  <td>{{ album.artist }}</td>
+
+                  <td>{{ album.users }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>

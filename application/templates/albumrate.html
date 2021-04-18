@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>test for album comment</title>
+</head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('albumcomments') }}">test for album comment</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Actors <!--(<a href = "{{ url_for('reg') }}"> Search for Actors
+         </a>)--></h3>
+      <table>
+         <thead>
+            <tr>
+               <th>album comment users</th>
+
+
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for albumcomment in albumcomments %}
+               <tr>
+                  
+                  <td>{{ albumcomment.users }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>

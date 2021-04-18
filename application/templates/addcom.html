@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie Comment</title>
+</head>
+<body>
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "comment_id">comment ID</label><br>
+         <input type = "comment_id" name = "comment_id" placeholder = "comment_id" /><br>
+
+         <label for = "movie_id">Movie ID</label><br>
+         <input type = "movie_id" name = "movie_id" placeholder = "movie_id" /><br>
+
+          <label for = "content"> Add Comment content</label><br>
+          <input type = "content" name = "content" placeholder = "content"><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+      
+</body>
+</html>

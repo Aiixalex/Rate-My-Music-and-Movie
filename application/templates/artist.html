@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Music&Movie---All Artists information</title>
+</head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('artists') }}">Show all Artists info</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Artists <!--(<a href = "{{ url_for('reg') }}"> Search for Artists
+         </a>)--></h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Portrait</th>
+                <th>Detailed Information</th>
+                <th>Company</th>
+                <th>Country</th>
+                <th>Genre</th>
+                <th>Track Name</th>
+                <th>Album ID</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for artist in artists %}
+               <tr>
+                  <td>{{ artist.id }}</td>
+                  <td>{{ artist.name }}</td>
+                  <td>{{ artist.portrait }}</td>
+                  <td>{{ artist.detailedinfo }}</td>
+                  <td>{{ artist.company}}</td>
+                  <td>{{ artist.country }}</td>
+                  <td>{{ artist.g_id }}</td>
+                  <td>{{ artist.track_name }}</td>
+                  <td>{{ artist.album_id }}</td>
+                  <td>{{ artist.producealbum }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>

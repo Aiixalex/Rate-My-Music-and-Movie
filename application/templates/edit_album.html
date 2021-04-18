@@ -1,0 +1,15 @@
+<doctype html="">
+    <title>Edit Album </title>
+    <h2>Edit Album</h2>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="post">
+        <dl>
+            {{ render_field(form.id) }}
+            {{ render_field(form.name) }}
+            {{ render_field(form.releaseDate) }}
+            {{ render_field(form.detailedInfo) }}
+            {{ render_field(form.album_or_ep) }}
+        </dl>
+        <p><input type="submit" value="Submit">
+    </p></form>
+</doctype>

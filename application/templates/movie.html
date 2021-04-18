@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Music&Movie---All Albums Information</title>
+</head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('addcom') }}">Add Movie Comment</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Movies </h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Title</th>
+               <th>Detailed Information</th>
+               <th>Movie Comments</th>
+                <th>Actors</th>
+                <th>Directors</th>
+              
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for post in posts %}
+               <tr>
+                  <td>{{ post.id }}</td>
+                  <td>{{ post.title }}</td>
+                  <td>{{ post.detailed_information }}</td>
+                  <td>{{ post.moviecomments }}</td>
+                  <td>{{ post.act }}</td>
+                  <td>{{ post.direct }}</td>
+                  
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>
